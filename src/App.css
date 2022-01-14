@@ -40,3 +40,8 @@
 .profile_preview{
   width: 500px;
 }
+
+
+body {
+  cursor: none;
+}
