@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/guessing_hole/static/css/main.05c4cf94.css",
-    "main.js": "/guessing_hole/static/js/main.d460659f.js",
+    "main.js": "/guessing_hole/static/js/main.3fe16ead.js",
     "static/js/787.23eddd73.chunk.js": "/guessing_hole/static/js/787.23eddd73.chunk.js",
     "static/media/cat.jpg": "/guessing_hole/static/media/cat.3f8baad94f7a0e7a9eb4.jpg",
     "static/media/logo.svg": "/guessing_hole/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/guessing_hole/index.html",
     "main.05c4cf94.css.map": "/guessing_hole/static/css/main.05c4cf94.css.map",
-    "main.d460659f.js.map": "/guessing_hole/static/js/main.d460659f.js.map",
+    "main.3fe16ead.js.map": "/guessing_hole/static/js/main.3fe16ead.js.map",
     "787.23eddd73.chunk.js.map": "/guessing_hole/static/js/787.23eddd73.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.05c4cf94.css",
-    "static/js/main.d460659f.js"
+    "static/js/main.3fe16ead.js"
   ]
 }
