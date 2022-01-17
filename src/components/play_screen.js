@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const Container = styled.div`
     width: 100%;
@@ -11,7 +11,7 @@ const Container = styled.div`
     background-position: center;
     background-size: contain;
     overflow: hidden;
-    cursor: none;
+    cursor: ${props =>props.isAnswerChecked ? "true" : "none"};
 `
 // const ImgBox = styled.div`
 //   img{
@@ -32,14 +32,15 @@ const Mouse = styled.div`
     border-radius: 100%;
     background: #454545;
     position: absolute;
-    width: 10rem;
-    height: 10rem;
+    width: ${props => props.cursorSize}rem;
+    height: ${props => props.cursorSize}rem;
     border: 2px solid green;
     top: ${props => props.y}px;
     left: ${props => props.x}px;
 `
 const PlayScreen = ({myImage}) => {
-    const [index,setIndex] = useState(0);
+    const [cursorSize,setCursorSize] = useState(10);
+    const [index,setIndex] = useState(0);  //현재 사진 번호
     const [mouse,setMouse] = useState({x: 0, y: 0});
     const onMouseMove = (e) => {
         setMouse({x: e.clientX, y: e.clientY})
@@ -49,11 +50,19 @@ const PlayScreen = ({myImage}) => {
         setIndex(index + 1);
         setIsAnswerChecked(false);
     }
+    const onKeyPress = (e) => {
+        if(e.key == '+'){
+            setCursorSize(cursorSize + 1)
+        } else if(e.key == '-') {
+            setCursorSize(cursorSize - 1)
+        };
+    }
+
     return(
-        <div>
-        <Container url={myImage[index]} onMouseMove={onMouseMove}>
+        <div tabIndex={0} onKeyPress={onKeyPress}>
+        <Container url={myImage[index]} onMouseMove={onMouseMove} isAnswerChecked={isAnswerChecked}>
             {isAnswerChecked?null:<Black>
-                <Mouse x={mouse.x - 50} y={mouse.y -50}/>
+                <Mouse x={mouse.x - 50} y={mouse.y -50} cursorSize={cursorSize}/>
             </Black>}
             
         {/* <Black></Black>
@@ -69,6 +78,7 @@ const PlayScreen = ({myImage}) => {
         <div style={{marginTop: '15px'}}>
             <button onClick={()=>{setIsAnswerChecked(true)}}>정답보기</button>
             <button onClick={()=>{nextQuiz()}}>다음문제</button>
+            <div style={{position:'absolute', bottom:'5px',right:'5px'}}>+,-로 크기를 조정할수 있어요 {index+1}/{myImage.length}</div>
         </div>
         </div>
     )

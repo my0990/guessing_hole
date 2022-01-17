@@ -70,6 +70,11 @@ const ButtonStyle = styled.button`
     width: 100px;
     height: 60px;
     border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    &:hover{
+      background-color: #454545;
+    }
 `
 
 const ImgInsert = ({myImage,onChange,setIsStarted}) => {
