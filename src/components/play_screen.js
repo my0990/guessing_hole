@@ -12,6 +12,7 @@ const Container = styled.div`
     background-size: contain;
     overflow: hidden;
     cursor: ${props =>props.isAnswerChecked ? "true" : "none"};
+    background-color: white;
 `
 // const ImgBox = styled.div`
 //   img{
@@ -31,7 +32,7 @@ const Black = styled.div`
 `
 const Mouse = styled.div`
     border-radius: 100%;
-    background: #454545;
+    background: gray;
     position: absolute;
     width: ${props => props.cursorSize}rem;
     height: ${props => props.cursorSize}rem;
