@@ -4,7 +4,6 @@ import {useState} from 'react';
 import { Route, Routes, Link, Router } from 'react-router-dom';
 import ImgInsert from './components/imgInsert';
 import PlayScreen from './components/play_screen';
-import PlayScreenTest from './components/play_screen_test';
 import Home from './components/home';
 
 function App() {

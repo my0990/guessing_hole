@@ -86,7 +86,7 @@ const ImgInsert = ({myImage,onChange,setIsStarted}) => {
         <p>이미지를 추가한 후 시작 버튼을 누르세요(여러개 가능)</p>
         <div className="input">
           <label for="input">
-            업로드
+            이미지추가
           </label>
           <input
            type={'file'}
