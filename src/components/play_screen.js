@@ -27,6 +27,7 @@ const Black = styled.div`
     mix-blend-mode: hard-light;
     margin: 0 auto;
     
+    
 `
 const Mouse = styled.div`
     border-radius: 100%;
@@ -35,7 +36,7 @@ const Mouse = styled.div`
     width: ${props => props.cursorSize}rem;
     height: ${props => props.cursorSize}rem;
     border: 2px solid green;
-    top: ${props => props.y}px;
+    top: ${props => props.y - props.cursorSize*7}px;
     left: ${props => props.x}px;
 `
 const PlayScreen = ({myImage}) => {
@@ -47,6 +48,9 @@ const PlayScreen = ({myImage}) => {
     };
     const [isAnswerChecked,setIsAnswerChecked] = useState(false);
     const nextQuiz = () => {
+        if(index === myImage.length-1){
+            return alert("마지막 사진입니다")
+        }
         setIndex(index + 1);
         setIsAnswerChecked(false);
     }
@@ -59,9 +63,9 @@ const PlayScreen = ({myImage}) => {
     }
 
     return(
-        <div tabIndex={0} onKeyPress={onKeyPress}>
-        <Container url={myImage[index]} onMouseMove={onMouseMove} isAnswerChecked={isAnswerChecked}>
-            {isAnswerChecked?null:<Black>
+        <div  onKeyPress={onKeyPress}>
+        <Container  url={myImage[index]} onMouseMove={onMouseMove} isAnswerChecked={isAnswerChecked}>
+            {isAnswerChecked?null:<Black tabIndex={0}>
                 <Mouse x={mouse.x - 50} y={mouse.y -50} cursorSize={cursorSize}/>
             </Black>}
             
@@ -76,8 +80,8 @@ const PlayScreen = ({myImage}) => {
               
         </Container>
         <div style={{marginTop: '15px'}}>
-            <button onClick={()=>{setIsAnswerChecked(true)}}>정답보기</button>
-            <button onClick={()=>{nextQuiz()}}>다음문제</button>
+            <button style={{cursor:'pointer'}} onClick={()=>{setIsAnswerChecked(true)}}>정답보기</button>
+            <button style={{cursor:'pointer'}} onClick={()=>{nextQuiz()}}>다음문제</button>
             <div style={{position:'absolute', bottom:'5px',right:'5px'}}>+,-로 크기를 조정할수 있어요 {index+1}/{myImage.length}</div>
         </div>
         </div>
