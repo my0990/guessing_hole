@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
 const Container = styled.div`
     width: 100%;
     min-width: 1100px;
-    height: 700px;
+    height: 90vh;
     position: relative;
     background-image: url(${props => props.url});
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@ const Container = styled.div`
 
 const Black = styled.div`
     width: 100%;
-    height: 700px;
+    height: 90vh;
     background-color: black;
     mix-blend-mode: hard-light;
     margin: 0 auto;
